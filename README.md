@@ -1,6 +1,8 @@
-# gitbook_tools
+# gitbook 本地化工具
 
 ## 使用举例
+
+克隆一个符合gitbook规范的markdown文档仓库
 
 ```
 git clone https://github.com/lixiangyun/Disruptor_doc_ZH_CN.git
