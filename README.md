@@ -25,7 +25,7 @@ docker run -v $PWD/Disruptor_doc_ZH_CN/_book:/usr/share/nginx/html -d -p 8080:80
 
 通过浏览器访问(http://your_ip:8080/)
 
-### 生成PDF
+### 生成PDF（暂不支持）
 
 ```
 docker run -it --rm \
@@ -35,3 +35,14 @@ docker run -it --rm \
 ```
 
 在当前目录下生成的book.pdf
+
+### gitbook插件安装
+
+```
+docker run -it --rm --net=host \
+         -e http_proxy=http://127.0.0.1:808 \
+         -e https_proxy=http://127.0.0.1:808 \
+         -v $PWD/Disruptor_doc_ZH_CN:/srv/gitbook \
+         linimbus/gitbook_tools \
+         /bin/bash -c "gitbook install;gitbook build;gitbook pdf"
+```
