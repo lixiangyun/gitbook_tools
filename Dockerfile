@@ -11,7 +11,8 @@ gitbook fetch ${VERSION} &&\
 npm cache clear &&\
 rm -rf /tmp/*
 
-RUN gitbook install
+RUN gitbook install disqus
+RUN gitbook install collapsible-menu
 
 WORKDIR /srv/gitbook
 
