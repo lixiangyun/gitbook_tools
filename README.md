@@ -17,6 +17,8 @@ docker run -it --rm \
          /bin/bash -c "gitbook build"
 ```
 
+**注意：如果涉及gitbook插件，需要增加`gitbook install`**
+
 在_book下面查看index.html或者通过ngix启动http服务查看；
 
 ```
@@ -36,13 +38,17 @@ docker run -it --rm --net=host \
          /bin/bash -c "gitbook install;gitbook build"
 ```
 
-### 生成PDF（暂不支持）
+**注意：因为gitbook install需要从外部下载，所以某些情况下需要设置代理，如`-e http_proxy=http://127.0.0.1:808`**
+
+### 生成PDF
 
 ```
 docker run -it --rm \
          -v $PWD/Disruptor_doc_ZH_CN:/srv/gitbook \
          linimbus/gitbook_tools \
-         /bin/bash -c "gitbook build;gitbook pdf"
+         /bin/bash -c "gitbook pdf"
 ```
 
 在当前目录下生成的book.pdf
+
+**注意：其他格式epub、mobi，如`gitbook epub`或者`gitbook mobi`**
