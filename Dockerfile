@@ -7,7 +7,7 @@ ARG VERSION=3.2.0
 LABEL version=$VERSION
 
 RUN npm install --global gitbook-cli
-RUN npm install --global ebook-convert
+#RUN npm install --global ebook-convert
 RUN gitbook fetch ${VERSION}
 RUN npm cache clear
 RUN rm -rf /tmp/*
