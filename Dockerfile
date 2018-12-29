@@ -11,8 +11,6 @@ gitbook fetch ${VERSION} &&\
 npm cache clear &&\
 rm -rf /tmp/*
 
-RUN gitbook update
-
 RUN npm install ebook-convert
 
 WORKDIR /srv/gitbook
