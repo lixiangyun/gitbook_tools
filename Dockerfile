@@ -11,7 +11,9 @@ gitbook fetch ${VERSION} &&\
 npm cache clear &&\
 rm -rf /tmp/*
 
-RUN npm install ebook-convert
+RUN apt-get update && apt-get install -y xdg-utils xz-utils python wget
+
+RUN wget --no-check-certificate -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sh /dev/stdin
 
 WORKDIR /srv/gitbook
 
