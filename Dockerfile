@@ -12,7 +12,6 @@ npm cache clear &&\
 rm -rf /tmp/*
 
 RUN gitbook update
-RUN gitbook install
 
 WORKDIR /srv/gitbook
 
