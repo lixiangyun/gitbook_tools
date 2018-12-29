@@ -13,6 +13,8 @@ rm -rf /tmp/*
 
 RUN gitbook update
 
+RUN npm install ebook-convert
+
 WORKDIR /srv/gitbook
 
 VOLUME /srv/gitbook /srv/html
