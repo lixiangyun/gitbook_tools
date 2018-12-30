@@ -6,19 +6,18 @@ ARG VERSION=3.2.0
 
 LABEL version=$VERSION
 
-RUN npm install gitbook-cli -g
+# add dependent packages
+RUN apt-get update && apt-get install -y calibre nodejs-legacy
 
-# dockerhub execution failed
-#RUN npm install svgexport -g
+# clean up useless packages
+RUN apt-get clean && apt-get autoclean
+
+RUN npm install gitbook-cli -g
+RUN npm install svgexport -g
 
 RUN gitbook fetch ${VERSION}
 RUN npm cache clear
 RUN rm -rf /tmp/*
-
-RUN apt-get update && apt-get install -y calibre
-
-# clean up useless packages
-RUN apt-get clean && apt-get autoclean 
 
 WORKDIR /srv/gitbook
 VOLUME /srv/gitbook /srv/html
